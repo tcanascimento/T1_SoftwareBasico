@@ -44,7 +44,8 @@ int main(int argc, char** argv)
 
     printf("Argumento 2 e 3: %s %s\n", argv[2], argv[3]);
 
-    // int vetor_clone = [vetor_size];
+    // k representa cada pixel convertido de RGB para um tom de cinza.
+    // RGB vetor_clone = [vetor_size];
     // for(int i = 0; i < vetor_size; i++){
     //   float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b)); //gera tom de cinza
     //   vetor_clone[i] = ;
