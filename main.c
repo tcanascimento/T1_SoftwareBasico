@@ -42,11 +42,17 @@ int main(int argc, char** argv)
     int vetor_size = pic.width * pic.height; //inserir fator de correção
     printf("Tamanho do vetor: %d\n", vetor_size);
 
+
     int vetor_clone = [vetor_size];
     for(int i = 0; i < vetor_size; i++){
       float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b)); //gera tom de cinza
       vetor_clone[i] = int(k);
     }
+
+    //mapear conjunto de caracteres com valores de tons de cinza - @ mais próximo de 255, e '.' mais próximo de 0.
+
+    // para gerar saída em html, cada linha vai ter o tamanho do width da imagem de entrada (dimensionada para o bloco);
+
     // printf("Primeiros 100 pixels da imagem:\n");
     // for(int i=0; i<100; i++) {
     //     printf("[%3d %3d %3d] ", pic.img[i].r, pic.img[i].g, pic.img[i].b);
