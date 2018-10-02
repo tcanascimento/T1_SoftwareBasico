@@ -42,12 +42,13 @@ int main(int argc, char** argv)
     int vetor_size = pic.width * pic.height; //inserir fator de correção
     printf("Tamanho do vetor: %d\n", vetor_size);
 
+    printf("Argumento 2 e 3: %s %s\n", argv[2], argv[3]);
 
-    int vetor_clone = [vetor_size];
-    for(int i = 0; i < vetor_size; i++){
-      float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b)); //gera tom de cinza
-      vetor_clone[i] = int(k);
-    }
+    // int vetor_clone = [vetor_size];
+    // for(int i = 0; i < vetor_size; i++){
+    //   float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b)); //gera tom de cinza
+    //   vetor_clone[i] = ;
+    // }
 
     //mapear conjunto de caracteres com valores de tons de cinza - @ mais próximo de 255, e '.' mais próximo de 0.
 
