@@ -91,7 +91,7 @@ int main(int argc, char** argv)
     //laço para imprimir imagem
     for(int i = 0; i < length; i++) {
       int temp = 0;
-      while(temp < height || ){
+      while(temp < width){
         fprintf(file, "%s", vetor_char[i]);
         temp +=1;
       }
