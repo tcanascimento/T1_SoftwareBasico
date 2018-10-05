@@ -68,6 +68,41 @@ int main(int argc, char** argv)
 
 
 
+    FILE *file = fopen("imagem.html", "w");
+    if (file == NULL)
+    {
+        printf("Error opening file!\n");
+        exit(1);
+    }
+
+    //int height = pic.width;
+    //char vetor_char[length];
+
+    // imprimir estrutura do body
+    fprintf(file, "<html><head></head>\n");
+    fprintf(file, "<body style="background: black;" leftmargin=0 topmargin=0>\n");
+    fprintf(file, "<style>\n");
+    fprintf(file, "pre  {\n");
+    fprintf(file, "         color: white;\n");
+    fprintf(file, "         font-family: Courier;\n");
+    fprintf(file, "         font-size: 8px;}\n");
+    fprintf(file, "</style>\n");
+    fprintf(file, "<pre>\n");
+    //laço para imprimir imagem
+    for(int i = 0; i < length; i++) {
+      int temp = 0;
+      while(temp < height || ){
+        fprintf(file, "%s", vetor_char[i]);
+        temp +=1;
+      }
+      fprintf(file, "<pre>\n");
+    }
+    fprintf(file, "</pre>\n");
+    fprintf(file, "</body>\n");
+    fprintf(file, "</html>\n");
+
+    fclose(file);
+
 
     // para gerar saída em html, cada linha vai ter o tamanho do width da imagem de entrada (dimensionada para o bloco);
 
