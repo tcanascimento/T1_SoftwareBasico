@@ -29,7 +29,7 @@ void load(char* name, Img* pic)
     }
     printf("Load: %d x %d x %d\n", pic->width, pic->height, chan);
 }
-
+//usar média
 //ler parâmetro de redução, que deverá representar o tamanho dos blocos -> 50% representa reduzir o vator à metade do seu tamanho original. Ex: vetor de 12 posições; 50% = 6 blocos de 2 pixels cada
 int main(int argc, char** argv)
 {
@@ -39,32 +39,39 @@ int main(int argc, char** argv)
         exit(1);
     }
     load(argv[1], &pic);
-    int vetor_size = pic.width * pic.height; //inserir fator de correção
-    printf("Tamanho do vetor: %d\n", vetor_size);
 
     printf("Argumento 2 e 3: %s %s\n", argv[2], argv[3]);
+    int height = pic.height;
+    int width = pic.width;
+    int length = height * width;
+    float clone_vetor[length];
 
-    // k representa cada pixel convertido de RGB para um tom de cinza.
-    // RGB vetor_clone = [vetor_size];
-    // for(int i = 0; i < vetor_size; i++){
-    //   float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b)); //gera tom de cinza
-    //   vetor_clone[i] = ;
-    // }
+    for(int i = 0; i < length; i++){
+        float k = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b));
+        clone_vetor[i] = k;
+      }
+    }
+
+    char vetor_char[length];
 
     //mapear conjunto de caracteres com valores de tons de cinza - @ mais próximo de 255, e '.' mais próximo de 0.
+    // fazer por média de tom
+    for(int i = 0; i < length; i++){
+        if(clone_vetor[i] <= 90) {
+          vetor_char[i] = '#';
+        } else if(clone_vetor[i] > 90 && clone_vetor[i] < 190) {
+          vetor_char[i] = '~';
+        } else {
+          vetor_char[i] = '.';
+        }
+    }
+
+
+
 
     // para gerar saída em html, cada linha vai ter o tamanho do width da imagem de entrada (dimensionada para o bloco);
 
-    // printf("Primeiros 100 pixels da imagem:\n");
-    // for(int i=0; i<100; i++) {
-    //     printf("[%3d %3d %3d] ", pic.img[i].r, pic.img[i].g, pic.img[i].b);
-    // }
 
-    // printf("tons de cinza: \n");
-    // for(int i=0; i<100; i++) {
-    //   float j = ((0.3 * pic.img[i].r) + (0.59 * pic.img[i].g) + (0.11 * pic.img[i].b));
-    //   printf("tom: %3f\n", j);
-    // }
     printf("\n");
     free(pic.img);
 }
